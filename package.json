@@ -1,0 +1,23 @@
+{
+  "name": "logger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev logger/logger-factory.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "dotenv": "^16.0.0",
+    "ts-node-dev": "^1.1.8",
+    "winston": "^3.7.2",
+    "winston-redis": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23"
+  }
+}
