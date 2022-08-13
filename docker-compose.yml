@@ -40,7 +40,7 @@ services:
     build:
       context: logstash/
       args:
-        ELK_VERSION: $ELK_VERSION
+        LOGSTASH_VERSION: $LOGSTASH_VERSION
     container_name: logstash
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
@@ -61,7 +61,7 @@ services:
     build:
       context: kibana/
       args:
-        ELK_VERSION: $ELK_VERSION
+        KIBANA_VERSION: $KIBANA_VERSION
     container_name: kibana
     restart: unless-stopped
     volumes:
