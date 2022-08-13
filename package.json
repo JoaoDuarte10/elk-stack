@@ -1,11 +1,12 @@
 {
-  "name": "logger",
+  "name": "elk-infra",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev logger/logger-factory.ts"
+    "dev": "ts-node-dev src/logger/logger-factory.ts",
+    "start": "ts-node-dev index.ts"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,8 @@
   "dependencies": {
     "@types/dotenv": "^8.2.0",
     "dotenv": "^16.0.0",
+    "elastic-apm-node": "^3.35.0",
+    "express": "^4.18.1",
     "ts-node-dev": "^1.1.8",
     "winston": "^3.7.2",
     "winston-redis": "^3.1.0"

@@ -75,6 +75,33 @@ services:
     depends_on:
       - elasticsearch
 
+  apm-server:
+    build:
+      context: apm/
+      args:
+        APM_VERSION: $APM_VERSION
+    container_name: apm-server
+    restart: unless-stopped
+    cap_add: ["CHOWN", "DAC_OVERRIDE", "SETGID", "SETUID"]
+    cap_drop: ["ALL"]
+    ports:
+      - 8200:8200
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+    command: >
+      ./apm-server -e
+        -E apm-server.rum.enabled=true
+        -E setup.kibana.host=kibana:5601
+        -E apm-server.kibana.enabled=true
+        -E apm-server.kibana.host=kibana:5601
+        -E apm-server.kibana.username=elastic
+        -E apm-server.kibana.password=147258321
+        -E output.elasticsearch.hosts=["elasticsearch:9200"]
+        -E output.elasticsearch.username=elastic
+        -E output.elasticsearch.password=147258321
+
   grafana:
     build:
       context: grafana/
